@@ -9,6 +9,10 @@ const { URI_MONGO } = process.env;
 // Exporta una función que establece la conexión con MongoDB
 module.exports = () => {
   mongoose
-    .connect(URI_MONGO) // Intenta conectar a la base de datos con la URI proporcionada
+    .connect(
+      //uri de mongo
+      //process.env.URI_MONGO
+      URI_MONGO
+    ) // Intenta conectar a la base de datos con la URI proporcionada
     .catch((e) => console.log("Error de conexión con el servidor de mongo", e)); // Captura y muestra errores en la conexión
 };
