@@ -1,4 +1,4 @@
-const usuario = require("../models/user.js");
+const usuario = require("../../models/user.js");
 const bcrypt = require("bcrypt");
 const { createAccessToken } = require("../../libs/jwt.js"); // Importar la función para crear el token
 const register = async (req, res) => {
@@ -24,7 +24,7 @@ const register = async (req, res) => {
 
     const usuarioGuardado = await nuevoUsuario.save();
     const token = await createAccessToken({ id: usuarioGuardado._id });
-    res._idcookie("token", token);
+    res.cookie("token", token);
     res.json({
       id: usuarioGuardado._id,
       nombre: usuarioGuardado.nombre,
